@@ -1,0 +1,29 @@
+.datePicker {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+.datePickerInputStart {
+  border: 2px solid transparent; /* Remove the default solid line */
+  border-radius: 5px 0 0 5px; /* Adjust the radius to control the curve */
+  height: 35px;
+  width: 100%;
+}
+
+.datePickerInputEnd {
+  border: 2px solid transparent; /* Remove the default solid line */
+  border-radius: 0 5px 5px 0; /* Adjust the radius to control the curve */
+  height: 35px;
+  width: 95%;
+}
+
+.bookingBtnContainer {
+  position: relative;
+  bottom: 0%;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}

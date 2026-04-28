@@ -1,0 +1,104 @@
+.container {
+  width: 100%;
+  height: 406px;
+  background-color: #141513;
+  margin-top: 300px;
+}
+
+.logo {
+  color: white;
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+}
+
+.logo::after {
+  content: "";
+  width: 60%;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  top: 100px;
+  position: absolute;
+  transform: translateY(-50%);
+  border: 1px solid #404040;
+  left: 20%;
+}
+
+.locationContainer {
+  position: relative;
+  bottom: 200px;
+  text-align: center;
+}
+.map {
+  width: 60%;
+  height: 300px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  color: white;
+}
+
+.termsConditons {
+  position: relative;
+  left: -5%;
+}
+
+@media screen and (max-width: 1020px) {
+  .container {
+    margin-top: 200px;
+    height: 110%;
+  }
+  .termsConditons {
+    font-size: 1em;
+    left: 0%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+  }
+  .map {
+    width: 90%;
+    height: 300px;
+  }
+
+  .details {
+    display: block;
+    justify-content: space-evenly;
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: -60px;
+  }
+
+  .detailsBig {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .container {
+    margin-top: 300px;
+  }
+  /* .termsConditons {
+    font-size: 1em;
+  } */
+
+  .logo::after {
+    content: "";
+    width: 60%;
+    height: 1px;
+    background-color: rgb(255, 255, 255);
+    top: 50px;
+    position: absolute;
+    transform: translateY(-50%);
+    border: 1px solid #404040;
+    left: 20%;
+  }
+}

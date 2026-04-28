@@ -1,0 +1,31 @@
+.btn {
+  width: 180px;
+  height: 40px;
+  border: none;
+}
+
+.btnText {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+
+.btn:hover {
+  /* Hover styles */
+  background-color: gray;
+  cursor: pointer;
+}
+
+.btn:hover .btnText {
+  color: rgb(255, 255, 255);
+}
+
+.btn:active {
+  /* Click styles */
+  background-color: darkgray;
+}
+
+@media screen and (max-width: 761px) {
+  .btn {
+    width: 80%;
+  }
+}

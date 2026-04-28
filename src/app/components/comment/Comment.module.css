@@ -1,0 +1,27 @@
+.container {
+  background-color: rgb(255, 255, 255);
+  height: 400px;
+  width: 450px;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message {
+  margin-top: 8px;
+}
+
+.author {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 760px) {
+  .container {
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: auto;
+    padding: 8%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
