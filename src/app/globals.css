@@ -5,9 +5,9 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 44, 36, 32;
+  --background-start-rgb: 245, 240, 235;
+  --background-end-rgb: 255, 252, 248;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -97,4 +97,56 @@ body {
 h6 {
   margin-bottom: 0;
   padding: 0;
+}
+
+/* Booking form — elegant dark inputs */
+#booking-section .form-control {
+  background: transparent;
+  border: 1px solid rgba(245, 240, 235, 0.3);
+  border-radius: 3px;
+  color: #F5F0EB;
+  font-size: 0.9rem;
+  height: 44px;
+  padding: 0 14px;
+  transition: border-color 0.2s;
+}
+
+#booking-section .form-control::placeholder {
+  color: rgba(245, 240, 235, 0.45);
+}
+
+#booking-section .form-control:focus {
+  background: transparent;
+  border-color: #C4A265;
+  box-shadow: none;
+  color: #F5F0EB;
+}
+
+#booking-section textarea.form-control {
+  height: auto;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+#booking-section .input-group {
+  gap: 12px;
+}
+
+@media screen and (max-width: 480px) {
+  #booking-section .input-group {
+    flex-direction: column;
+  }
+
+  #booking-section .input-group > .form-control {
+    width: 100% !important;
+  }
+}
+
+#booking-section .input-group > .form-control {
+  border-radius: 3px !important;
+}
+
+#booking-section .form-control.is-invalid {
+  border-color: #e07070;
+  background-image: none;
 }

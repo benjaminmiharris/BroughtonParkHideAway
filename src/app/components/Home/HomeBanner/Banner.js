@@ -34,13 +34,12 @@ const Banner = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.contentText}>
-          <p className={`${styles.topText} text`}>The great place</p>
+          <p className={`${styles.topText} text`}>A great place for your visit</p>
           <h1 style={spinnaker.style} className={`${styles.heading}`}>
-            FOR YOUR VACATION
+            BROUGHTON PARK RETREAT
           </h1>
           <p className={`${styles.bottomText} text`}>
-            Leave the city behind to explore the great outdoors at our Outpost
-            in the Ramat Shilo community, Ramat Bet Shemesh, Israel.
+            Your home from home in the heart of the Manchester Jewish Community.
           </p>
           <div className={styles.btnContainer}>
             <PrimaryBtn onClick={() => handleClickScroll("booking-section")} />

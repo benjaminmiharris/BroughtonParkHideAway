@@ -26,11 +26,20 @@ const Booking = () => {
             Booking Calendar
           </h2>
           <p className={styles.bookingMessage}>
-            Book now and secure your unforgettable holiday getaway in Ramat
-            Shilo, Ramat Bet Shemesh, Israel. The cost per night is 450 NIS with
-            discounted rates available for longer stays, taking into account a
-            reduced rate due to intermittent construction nearby.*.
-            <br /> *pricing for shabbat and festivals - on application.
+            Book now and secure your stay at Broughton Park Hideaway in the
+            heart of the Manchester Jewish Community.
+            <br />
+            <br />
+            <strong>Prices:</strong>
+            <br />
+            1–3 days: £100 per day
+            <br />
+            4–6 days: £80 per day
+            <br />
+            7+ days: £70 per day
+            <br />
+            <br />
+            Pricing for Shabbos and Yom Tov — on application.
           </p>
           <div className={styles.bookingCalendar}>
             <CalendarReact />

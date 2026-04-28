@@ -14,42 +14,37 @@ const Welcome = () => {
         <div className={styles.content}>
           <img src={WelcomeImage.src} className={styles.image} />
           <div className={styles.textContent}>
-            <p className={styles.headerBox}>1. Hello There</p>
+            <p className={styles.headerBox}>Welcome</p>
             <h2 style={spinnaker.style} className={`${styles.heading} `}>
-              Welcome to your world of relaxation.
+              Welcome to your home from home.
             </h2>
             <div className={styles.about}>
               <p>
-                Whether you are visiting family or friends, or looking for a bit
-                of r&amp;r, you are at the right place. This modern
-                designer-built, comfortable getaway is situated in the Ramat
-                Shilo area of Ramat Beit Shemesh, and offers a spacious living
-                area, fully equipped kosher kitchen, well-appointed bathroom,
-                and large attractive bedroom, where you can experience both
-                relaxation and adventure in a beautiful setting, promising an
-                unforgettable holiday experience.
+                Whether you&apos;re visiting family or friends, are Chosson &amp; Kallah,
+                or just looking for a bit of peace and quiet, this is the place for you.
               </p>
-              <p>The apartment is situated:</p>
-
-              <div className={styles.aboutPoints}>
-                <p className={styles.headerBoxPoints}>
-                  2 minutes walk of several shuls
-                </p>
-                <p className={styles.headerBoxPoints}>7 min walk to shops</p>
-                <p className={styles.headerBoxPoints}>
-                  35 minutes drive to Jerusalem
-                </p>
-                <p className={styles.headerBoxPoints}>
-                  45 minutes drive to Tel Aviv
-                </p>
-                <p className={styles.headerBoxPoints}>
-                  45 minutes drive to the beach
-                </p>
-              </div>
-
               <p>
-                Surrounded by hills replete in history, with interesting
-                archaeological sites and pleasant walks.
+                This quaint &lsquo;duplex&rsquo;, newly converted within a hundred year old
+                outhouse, is beautifully designed to meet the needs of visitors to the
+                &lsquo;Jewish Quarter&rsquo; of Broughton Park in Salford.
+              </p>
+              <p>
+                It offers cosy, comfortable and quiet accommodation, discreetly
+                positioned in a cul-de-sac that offers the feel of an English country
+                village, whilst yet being in the heart of the Jewish community.
+              </p>
+              <p>
+                Its many facilities include 2 comfortable beds, sitting and eating areas,
+                fridge, microwave, kettles etc., a small mezzanine floor with 2 sofa
+                chairs, 2 TVs and a modern bathroom.
+              </p>
+              <p>
+                Whilst Manchester is not known for its sunny climate outside (a reputation
+                not fully deserved), you can rest assured that the hideaway will always
+                provide a comfortable climate inside.
+              </p>
+              <p>
+                We hope, indeed know, that you will enjoy your stay at Broughton Park Hideaway.
               </p>
             </div>
           </div>

@@ -1,104 +1,84 @@
 .container {
   width: 100%;
-  height: 406px;
-  background-color: #141513;
-  margin-top: 300px;
+  background-color: #2C2420;
+  padding: 60px 20px 40px;
+  margin-top: 0;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
 .logo {
-  color: white;
+  color: #F5F0EB;
   text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
   position: relative;
-  bottom: 100px;
+  padding-bottom: 24px;
 }
 
 .logo::after {
   content: "";
-  width: 60%;
+  width: 60px;
   height: 1px;
-  background-color: rgb(255, 255, 255);
-  top: 100px;
+  background-color: #C4A265;
   position: absolute;
-  transform: translateY(-50%);
-  border: 1px solid #404040;
-  left: 20%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .locationContainer {
-  position: relative;
-  bottom: 200px;
+  width: 100%;
   text-align: center;
 }
+
 .map {
-  width: 60%;
-  height: 300px;
+  width: 100%;
+  max-width: 700px;
+  height: 280px;
+  border: none;
+  opacity: 0.85;
 }
 
-.details {
+.contact {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
-  margin-left: 20%;
-  color: white;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.termsConditons {
-  position: relative;
-  left: -5%;
+.contactItem {
+  color: #c9bfb5;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
-@media screen and (max-width: 1020px) {
-  .container {
-    margin-top: 200px;
-    height: 110%;
-  }
-  .termsConditons {
-    font-size: 1em;
-    left: 0%;
-    margin-bottom: 2%;
-    margin-top: 2%;
-  }
-  .map {
-    width: 90%;
-    height: 300px;
-  }
-
-  .details {
-    display: block;
-    justify-content: space-evenly;
-    height: 50%;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    text-align: center;
-    position: relative;
-    top: -60px;
-  }
-
-  .detailsBig {
-    margin: 0;
-    padding: 0;
-  }
+.contactLabel {
+  color: #C4A265;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
 }
 
-@media screen and (max-width: 920px) {
-  .container {
-    margin-top: 300px;
-  }
-  /* .termsConditons {
-    font-size: 1em;
-  } */
+.copyright {
+  color: #6b5f57;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
 
-  .logo::after {
-    content: "";
-    width: 60%;
-    height: 1px;
-    background-color: rgb(255, 255, 255);
-    top: 50px;
-    position: absolute;
-    transform: translateY(-50%);
-    border: 1px solid #404040;
-    left: 20%;
+@media screen and (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+    gap: 20px;
   }
 }

@@ -2,189 +2,150 @@
   position: relative;
   top: 50px;
   width: 100%;
-  height: 907px;
+  height: 480px;
   display: flex;
 }
 
 .image {
-  left: 50%;
-  width: 50%;
+  width: 55%;
   height: 100%;
   background-image: url("../../../../../public/bedroom-banner.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
+  flex-shrink: 0;
 }
 
 .content {
-  width: 50%;
+  flex: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
-  background-color: #404040;
-  padding: 20px;
-  opacity: 96%;
+  align-items: flex-start;
+  background-color: #3A2E28;
+  padding: 40px 32px;
 }
 
 .contentText {
-  position: relative;
-  left: 30%;
+  width: 100%;
+  max-width: 340px;
+  padding-left: 10%;
 }
 
 .topText {
-  width: 50%;
-  height: 36px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: #C4A265;
+  text-transform: uppercase;
   position: relative;
+  padding-top: 110px;
 }
 
 .topText::before {
   content: "";
   width: 1px;
-  height: 96px;
-  background-color: rgb(255, 255, 255);
-  top: -90px;
+  height: 80px;
+  background-color: #C4A265;
+  top: 20px;
   position: absolute;
-  transform: translateY(-50%);
-  left: 30px;
+  left: 0;
 }
+
 .heading {
-  /* margin-top: 16px; */
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 16px;
   color: #ffffff;
-  width: 50%;
-  height: 140px;
-  line-height: 130%;
+  width: 100%;
+  height: auto;
+  line-height: 1.2;
 }
 
 .bottomText {
-  margin-top: 3%;
-  margin-bottom: 6%;
-  width: 65%;
-  height: 100px;
-  line-height: 200%;
+  margin-top: 0;
+  margin-bottom: 24px;
+  width: 100%;
+  height: auto;
+  line-height: 1.7;
+  font-size: 0.9rem;
+  color: rgba(245, 240, 235, 0.8);
 }
 
-.line::above {
-  content: "";
-  width: 3px;
-  height: 500px;
-  display: block;
-  background-color: #ffffff;
-  top: 50px;
-  position: absolute;
-}
-
-@media screen and (max-width: 1158px) {
-  .heading {
-    width: 80%;
-  }
-}
-
+/* Tablet */
 @media screen and (max-width: 1019px) {
   .container {
     flex-direction: column;
-    height: 100%;
+    height: auto;
+  }
+
+  .image {
+    width: 100%;
+    height: 340px;
+    background-position: center;
   }
 
   .content {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
     align-items: center;
-    background-color: #404040;
-    padding: 0px;
-    opacity: 96%;
+    padding: 48px 24px;
     text-align: center;
   }
 
   .contentText {
-    position: relative;
-    /* left: 7%; */
-    text-align: center;
-    margin-top: 10%;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 10%;
-    left: 0;
+    max-width: 560px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .topText {
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 0%;
-    font-size: 1.2rem;
-    top: 40px;
+    padding-top: 0;
   }
 
   .topText::before {
-    content: "";
-    width: 1px;
-    height: 96px;
-    background-color: rgb(255, 255, 255);
-    top: -170%;
-    position: absolute;
-    transform: translateY(-50%);
-    left: 49%;
-  }
-  .heading {
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    font-size: 3.3rem;
-  }
-
-  .bottomText {
-    margin: auto;
-    width: 80%;
-    position: relative;
-    top: -60px;
-  }
-
-  .btnContainer {
-    position: relative;
-    top: -50px;
-  }
-
-  .line::above {
     display: none;
   }
 
-  .image {
-    position: relative;
-    left: 0%;
-    width: 100%;
-    height: 450px;
-    background-image: url("../../../../../public/bedroom-banner.jpg");
-    background-size: cover;
-    background-position: center;
+  .heading {
+    font-size: 2rem;
+    margin-top: 12px;
+  }
+
+  .bottomText {
+    width: 90%;
   }
 }
 
-@media screen and (max-width: 760px) {
-  .topText::before {
-    display: none;
+.btnContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Tablet */
+@media screen and (max-width: 1019px) {
+  .btnContainer {
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .image {
+    height: 260px;
   }
 
-  .contentText {
-    position: relative;
-    /* left: 7%; */
-    text-align: center;
-    margin-top: 2%;
-    margin-bottom: 8%;
-    left: 0;
+  .content {
+    padding: 36px 20px;
   }
 
   .heading {
-    margin-bottom: 80px;
+    font-size: 1.6rem;
   }
 
   .bottomText {
-    margin-bottom: 20px;
+    font-size: 0.88rem;
+    width: 100%;
   }
 }

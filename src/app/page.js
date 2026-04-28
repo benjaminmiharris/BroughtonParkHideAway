@@ -12,7 +12,7 @@ function Home({ response }) {
   return (
     <>
       <FloatingWhatsApp
-        accountName="Ramat Shilo Retreat"
+        accountName="BROUGHTON PARK RETREAT"
         phoneNumber="+972535245115"
         avatar="https://www.ramatshilo-retreat.com/_next/static/media/home-about-image.2b721143.jpg"
       />

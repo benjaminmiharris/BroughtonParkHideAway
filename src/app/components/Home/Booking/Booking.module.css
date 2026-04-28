@@ -1,161 +1,106 @@
 .container {
-  position: relative;
   width: 100%;
-  height: 1000px;
-  overflow: hidden;
 }
 
 .bookingContainer {
   display: flex;
   width: 100%;
-  height: 60%;
-  background-color: #404040;
-  margin-top: 15%;
+  background-color: #3A2E28;
 }
 
 .image {
-  width: auto;
+  width: 50%;
   height: auto;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
 }
 
 .calendarContainer {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  position: relative;
-  top: 5%;
-  left: 2%;
+  padding: 48px 40px;
+  min-width: 0;
 }
 
 .headerBox {
-  width: 120px;
-  padding: 8px;
-  background-color: #2f2f2f;
-  color: rgb(255, 255, 255);
-  text-align: center;
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #C4A265;
+  color: #2C2420;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
 .header {
   color: white;
+  margin-bottom: 12px;
 }
 
 .bookingMessage {
-  color: white;
-  line-height: 200%;
+  color: rgba(245, 240, 235, 0.85);
+  line-height: 1.8;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
 }
 
 .bookingCalendar {
-  margin-top: 0.5%;
-
-  z-index: 1;
-  width: 85%;
+  width: 100%;
 }
 
 .message {
-  display: inline;
-  height: 10px;
-  width: 40px;
   color: white;
 }
 
 .bookingBtnContainer {
-  position: relative;
-  bottom: -10%;
+  text-align: center;
+  width: 100%;
+  margin-top: 16px;
 }
 
-.calendarCstm {
-  color: white;
-}
-
-@media screen and (max-width: 920px) {
-  .container {
-    position: relative;
-    width: 100%;
-    height: 1100px;
-    overflow: hidden;
+/* Tablet */
+@media screen and (max-width: 860px) {
+  .bookingContainer {
+    flex-direction: column;
   }
 
   .image {
     width: 100%;
-    height: auto;
-    /* background-image: url("../../../../../public/about-image.jpg"); */
-    background-position: center;
-    background-size: none;
+    max-height: 320px;
+    object-position: center;
   }
-  .bookingContainer {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #404040;
-    margin-top: 0%;
-  }
+
   .calendarContainer {
-    display: flex;
-    flex-direction: column;
+    padding: 40px 32px;
     width: 100%;
-    position: relative;
-    top: 4%;
-    left: 0%;
-    margin: 0;
-    padding: 0;
   }
 
   .headerBox {
-    width: 120px;
-    padding: 8px;
-    background-color: #2f2f2f;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 16px;
   }
 
   .header {
-    color: white;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 4%;
+    text-align: center;
   }
 
   .bookingMessage {
-    color: white;
-    line-height: 200%;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 2%;
-
-    text-align: center;
-    width: 80%;
-  }
-
-  .bookingCalendar {
-    margin-top: 2%;
-    margin-right: auto;
-    margin-left: auto;
-    width: 70%;
     text-align: center;
   }
+}
 
-  .message {
-    display: inline;
-    height: 10px;
-    width: 100%;
-    color: #2f2f2f;
-    margin-right: auto;
-    margin-left: auto;
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .calendarContainer {
+    padding: 32px 20px;
   }
 
-  .bookingBtnContainer {
-    position: relative;
-    bottom: 0%;
-    text-align: center;
-    width: 100%;
-    margin-top: 40px;
-  }
-
-  .calendarCstm {
-    color: white;
-    width: 80%;
-    height: 50px;
+  .bookingMessage {
+    font-size: 0.88rem;
   }
 }

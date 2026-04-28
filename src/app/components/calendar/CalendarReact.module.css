@@ -2,28 +2,49 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center; /* Center horizontally */
-  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-.datePickerInputStart {
-  border: 2px solid transparent; /* Remove the default solid line */
-  border-radius: 5px 0 0 5px; /* Adjust the radius to control the curve */
-  height: 35px;
-  width: 100%;
-}
-
+.datePickerInputStart,
 .datePickerInputEnd {
-  border: 2px solid transparent; /* Remove the default solid line */
-  border-radius: 0 5px 5px 0; /* Adjust the radius to control the curve */
-  height: 35px;
-  width: 95%;
+  background: transparent;
+  border: 1px solid rgba(245, 240, 235, 0.3);
+  border-radius: 3px;
+  height: 44px;
+  width: 100%;
+  color: #F5F0EB;
+  padding: 0 14px;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: border-color 0.2s;
+}
+
+.datePickerInputStart:focus,
+.datePickerInputEnd:focus {
+  outline: none;
+  border-color: #C4A265;
+}
+
+.datePickerInputStart::placeholder,
+.datePickerInputEnd::placeholder {
+  color: rgba(245, 240, 235, 0.5);
 }
 
 .bookingBtnContainer {
-  position: relative;
-  bottom: 0%;
   text-align: center;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 480px) {
+  .datePicker {
+    flex-direction: column;
+  }
+}
+
+.error {
+  color: #e07070;
+  font-size: 0.85rem;
+  margin-top: 6px;
 }
