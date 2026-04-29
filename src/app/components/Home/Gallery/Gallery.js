@@ -18,39 +18,39 @@ const Gallery = () => {
         <ul className={styles.galleryTopRowContainer}>
           <li className={styles.galleryTopRow}>
             <div className={styles.imageContainer}>
-              <img alt="Bedroom" src={Img1.src} className={styles.image} />
+              <img alt="Bedroom at Broughton Park Hideaway, Salford Manchester" src={Img1.src} className={styles.image} />
             </div>
           </li>
           <li className={styles.galleryTopRow}>
             <div className={styles.imageContainer}>
-              <img alt="Bathroom" src={Img2.src} className={styles.image} />
+              <img alt="Modern bathroom at Broughton Park Hideaway" src={Img2.src} className={styles.image} />
             </div>
           </li>
           <li className={styles.galleryTopRow}>
             <div className={styles.imageContainer}>
-              <img alt="Shower" src={Img3.src} className={styles.image} />
+              <img alt="Electric shower at Broughton Park Hideaway" src={Img3.src} className={styles.image} />
             </div>
           </li>
         </ul>
         <ul className={styles.galleryBottomRowContainer}>
           <li className={styles.galleryBottomRow}>
             <div className={styles.imageContainer}>
-              <img alt="Kitchen" src={Img4.src} className={styles.image} />
+              <img alt="Fully equipped kitchen at Broughton Park Hideaway" src={Img4.src} className={styles.image} />
             </div>
           </li>
           <li className={styles.galleryBottomRow}>
             <div className={styles.imageContainer}>
-              <img alt="Mezzanine stairs" src={Img5.src} className={styles.image} />
+              <img alt="Mezzanine stairs at Broughton Park Hideaway, Broughton Park" src={Img5.src} className={styles.image} />
             </div>
           </li>
           <li className={styles.galleryBottomRow}>
             <div className={styles.imageContainer}>
-              <img alt="Mezzanine lounge" src={Img6.src} className={styles.image} />
+              <img alt="Mezzanine lounge with TV at Broughton Park Hideaway" src={Img6.src} className={styles.image} />
             </div>
           </li>
           <li className={styles.galleryBottomRow}>
             <div className={styles.imageContainer}>
-              <img alt="Room overview" src={Img7.src} className={styles.image} />
+              <img alt="Overview of the hideaway accommodation in Broughton Park, Salford" src={Img7.src} className={styles.image} />
             </div>
           </li>
         </ul>
