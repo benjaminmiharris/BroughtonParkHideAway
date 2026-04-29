@@ -60,12 +60,12 @@ function Header() {
               Gallery
             </Nav.Link>
             {/* <Nav.Link href="#pricing">Floor Plan</Nav.Link> */}
-            <Nav.Link
+            {/* <Nav.Link
               href="#pricing"
               onClick={() => handleClickScroll("testemonials-section")}
             >
               Reviews
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               href="#pricing"
               onClick={() => handleClickScroll("booking-section")}

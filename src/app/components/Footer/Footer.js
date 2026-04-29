@@ -18,7 +18,7 @@ const Footer = () => {
           </div>
           <div className={styles.contactItem}>
             <span className={styles.contactLabel}>Enquiries</span>
-            info@broughtonparkhideaway.com
+            broughtonparkhideaway@gmail.com
           </div>
         </div>
 

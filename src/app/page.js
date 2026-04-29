@@ -21,7 +21,7 @@ function Home({ response }) {
         <Banner />
         <Welcome />
         <Gallery />
-        <Testemonials />
+        {/* <Testemonials /> */}
         <Booking />
       </div>
     </>
