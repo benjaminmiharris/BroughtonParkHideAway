@@ -34,18 +34,6 @@
   transform: translateX(-50%);
 }
 
-.locationContainer {
-  width: 100%;
-  text-align: center;
-}
-
-.map {
-  width: 100%;
-  max-width: 700px;
-  height: 280px;
-  border: none;
-  opacity: 0.85;
-}
 
 .contact {
   display: flex;
