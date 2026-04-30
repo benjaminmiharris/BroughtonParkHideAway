@@ -186,6 +186,7 @@ export default function CalendarReact() {
             minDate={startDate}
             onChange={handleEndDateChange}
             filterDate={(d) => new Date() < d}
+            maxDate={startDate ? new Date(new Date(startDate).setDate(new Date(startDate).getDate() + 14)) : null}
             isClearable
             excludeDateIntervals={excludeDates}
           />

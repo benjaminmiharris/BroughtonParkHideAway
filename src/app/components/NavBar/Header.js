@@ -40,7 +40,7 @@ function Header() {
       } fixed-top`}
     >
       <Container>
-        <Navbar.Brand href="/">BROUGHTON PARK RETREAT</Navbar.Brand>
+        <Navbar.Brand href="/">BROUGHTON PARK HIDEAWAY</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
           id="responsive-navbar-nav"

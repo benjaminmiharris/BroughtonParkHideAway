@@ -36,7 +36,7 @@ const Banner = () => {
         <div className={styles.contentText}>
           <p className={`${styles.topText} text`}>A great place for your visit</p>
           <h1 style={spinnaker.style} className={`${styles.heading}`}>
-            BROUGHTON PARK RETREAT
+            BROUGHTON PARK HIDEAWAY
           </h1>
           <p className={`${styles.bottomText} text`}>
             Your home from home in the heart of the Manchester Jewish Community.

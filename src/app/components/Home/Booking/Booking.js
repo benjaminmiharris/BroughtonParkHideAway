@@ -36,10 +36,7 @@ const Booking = () => {
             <br />
             4–6 days: £80 per day
             <br />
-            7+ days: £70 per day
-            <br />
-            <br />
-            Pricing for Shabbos and Yom Tov — on application.
+            7–14 days: £70 per day
           </p>
           <div className={styles.bookingCalendar}>
             <CalendarReact />
