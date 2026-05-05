@@ -68,39 +68,10 @@ const Testemonials = () => {
           autoPlaySpeed={4000}
         >
           <Comment
-            title={"Highly recommended!"}
+            title={"We felt so comfortable and at home!"}
             numberOfStars={5}
-            quote={`"I stayed at the golds apartment for a month!
-It was so nice, the place was always clean, the host is super friendly and helpful, great location!!
-Shul right next door!!
-Highly recommended!"`}
-            guestName={"Rachel S"}
-          />
-          <Comment
-            title={"Already recommended it to friends"}
-            numberOfStars={5}
-            quote={`"The apartment is stunningly designed and decorated, a 5-minute walk from the shopping center. The views make you feel like you're in a peaceful suburb surrounded by Israel's mountains. Highly recommended - I've already suggested it to friends."`}
-            guestName={"Sarah R "}
-          />
-
-          <Comment
-            title={"Look forward to returning!"}
-            numberOfStars={5}
-            quote={`"Walk up a flight of stairs to a charming porch with a table & chairs (morning coffee?). 5-star accommodation in a quiet area across from a park and Shuls. Spacious, modern apartment with fully equipped kosher kitchen, spa-like bathroom, comfy bedroom, couch, washer & dryer, WiFi. Friendly host family. We look forward to returning!"`}
-            guestName={"Josh and Barbara "}
-          />
-          <Comment
-            title={"Highly recommend"}
-            numberOfStars={5}
-            quote={`"Highly recommended the Golds rental unit.  The place is clean, fresh and beautifully furnished.  All amenities included. 
-            An oasis in the heart of Ramat Shilo.  Our guest had a lovely stay. The hosts are so friendly and accommodating making sure everything is perfect."`}
-            guestName={"Chanie R"}
-          />
-          <Comment
-            title={"Highly recommend"}
-            numberOfStars={5}
-            quote={`"This apartment, close to Yeshivat Lev HaTorah, boasts beautiful, spacious design. Thoughtful touches, bright interiors, and consistent design create a delightful atmosphere. The modern kitchen, inviting living room, and well-appointed bedroom and bathroom ensure a pleasant stay. The hosts are excellent, offering assistance and welcoming feedback."`}
-            guestName={"Rena and Yehuda"}
+            quote={`"We absolutely loved our stay at your place! We don't have any suggestions as we feel you really remembered everything! We felt so comfortable and at home. We actually really enjoyed your book selection!"`}
+            guestName={"Recent Guest"}
           />
         </Carousel>
       </div>
