@@ -37,6 +37,9 @@ const Booking = () => {
             4–6 days: £80 per day
             <br />
             7–14 days: £70 per day
+            <br />
+            <br />
+            <em>All bookings include a £20 cleaning fee.</em>
           </p>
           <div className={styles.bookingCalendar}>
             <CalendarReact />

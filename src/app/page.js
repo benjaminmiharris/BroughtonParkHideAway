@@ -3,6 +3,7 @@ import Booking from "./components/Home/Booking/Booking";
 import Gallery from "./components/Home/Gallery/Gallery";
 import Banner from "./components/Home/HomeBanner/Banner";
 import Welcome from "./components/Home/Welcome/Welcome";
+import Testemonials from "./components/Home/Testemonials/Testemonials";
 import styles from "./page.module.css";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 
@@ -18,6 +19,7 @@ function Home() {
         <Banner />
         <Welcome />
         <Gallery />
+        <Testemonials />
         <Booking />
       </div>
     </>

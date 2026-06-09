@@ -29,7 +29,10 @@ export default function CalendarReact() {
   const [excludeDates, setExcludeDates] = useState([]);
   const [errorBooking, setErrorBooking] = useState("");
 
-  const { data: eventData } = useSWR(`${SERVER_URL}/getCalendarEvents`, fetcher);
+  const { data: eventData } = useSWR(
+    `${SERVER_URL}/getCalendarEvents`,
+    fetcher,
+  );
 
   // Convert calendar events to excluded date ranges
   useEffect(() => {
@@ -53,11 +56,13 @@ export default function CalendarReact() {
     if (!sumNumberOfDays) return;
     let rate;
     if (sumNumberOfDays <= 3) rate = 100;
-    else if (sumNumberOfDays <= 6) rate = 80; // 4–6 days
+    else if (sumNumberOfDays <= 6)
+      rate = 80; // 4–6 days
     else rate = 70;
+    const subtotal = sumNumberOfDays * rate;
     setPrice({
-      price: sumNumberOfDays * rate,
-      deposit: sumNumberOfDays * rate * 0.2,
+      price: subtotal + 20,
+      deposit: subtotal * 0.2,
     });
   }, [sumNumberOfDays]);
 
@@ -91,8 +96,12 @@ export default function CalendarReact() {
   };
 
   const sendEmail = (event) => {
-    const startDateFormatted = new Date(event.start.dateTime).toLocaleDateString("en-GB");
-    const endDateFormatted = new Date(event.end.dateTime).toLocaleDateString("en-GB");
+    const startDateFormatted = new Date(
+      event.start.dateTime,
+    ).toLocaleDateString("en-GB");
+    const endDateFormatted = new Date(event.end.dateTime).toLocaleDateString(
+      "en-GB",
+    );
 
     emailjs.send(
       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -105,12 +114,18 @@ export default function CalendarReact() {
         guestEmail: event.details.contactEmail,
         guestName: event.details.guestName,
       },
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
     );
   };
 
   const handleBookingSubmission = async () => {
-    if (!guestFullName || !guestEmail || !numberOfGuests || !startDate || !endDate) {
+    if (
+      !guestFullName ||
+      !guestEmail ||
+      !numberOfGuests ||
+      !startDate ||
+      !endDate
+    ) {
       setShowSubmitError(true);
       return;
     }
@@ -186,7 +201,15 @@ export default function CalendarReact() {
             minDate={startDate}
             onChange={handleEndDateChange}
             filterDate={(d) => new Date() < d}
-            maxDate={startDate ? new Date(new Date(startDate).setDate(new Date(startDate).getDate() + 14)) : null}
+            maxDate={
+              startDate
+                ? new Date(
+                    new Date(startDate).setDate(
+                      new Date(startDate).getDate() + 14,
+                    ),
+                  )
+                : null
+            }
             isClearable
             excludeDateIntervals={excludeDates}
           />
@@ -199,12 +222,14 @@ export default function CalendarReact() {
           placeholder="Full Name"
           onChange={(e) => setGuestFullName(e.target.value)}
           isInvalid={showSubmitError && !guestFullName}
+          required
         />
         <Form.Control
           type="email"
           placeholder="Email"
           onChange={(e) => setGuestEmail(e.target.value)}
           isInvalid={showSubmitError && !guestEmail}
+          required
         />
       </InputGroup>
 
@@ -212,6 +237,7 @@ export default function CalendarReact() {
         <Form.Control
           placeholder="Mobile"
           onChange={(e) => setGuestContactNumber(e.target.value)}
+          required
         />
         <Form.Control
           type="number"
@@ -220,6 +246,7 @@ export default function CalendarReact() {
           isInvalid={showSubmitError && !numberOfGuests}
           min={1}
           max={6}
+          required
         />
       </InputGroup>
 
@@ -227,7 +254,7 @@ export default function CalendarReact() {
         <Form.Control
           as="textarea"
           rows={2}
-          placeholder="Additional details"
+          placeholder="Additional details or Special requests"
           onChange={(e) => setAdditionalBookingDetails(e.target.value)}
         />
       </Form.Group>

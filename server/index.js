@@ -64,6 +64,21 @@ app.post("/createEvent", async (req, res) => {
   }
 });
 
+// DELETE /deleteEvent/:id — removes a booking from Google Calendar
+app.delete("/deleteEvent/:id", async (req, res) => {
+  try {
+    const calendar = getCalendarClient();
+    await calendar.events.delete({
+      calendarId: CALENDAR_ID,
+      eventId: req.params.id,
+    });
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting calendar event:", error.message);
+    res.status(500).json({ error: "Failed to delete calendar event" });
+  }
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
