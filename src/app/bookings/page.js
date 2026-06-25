@@ -14,12 +14,118 @@ function formatDate(dateStr) {
   });
 }
 
+function parseDescription(description) {
+  if (!description) return {};
+  const fields = {};
+  const patterns = [
+    ["email", /Contact Email:\s*([^,]+)/i],
+    ["phone", /Contact Number:\s*([^,]+)/i],
+    ["guests", /Number of Guests:\s*([^,]+)/i],
+    ["notes", /Additional details:\s*(.+)$/i],
+  ];
+  for (const [key, regex] of patterns) {
+    const match = description.match(regex);
+    if (match) fields[key] = match[1].trim();
+  }
+  return fields;
+}
+
+function BookingCard({ event, index, onDelete }) {
+  const [expanded, setExpanded] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const details = parseDescription(event.description);
+  const checkIn = formatDate(event.start.date || event.start.dateTime);
+  const checkOut = formatDate(event.end.date || event.end.dateTime);
+
+  const handleDelete = async () => {
+    setDeleting(true);
+    await onDelete(event.id);
+    setDeleting(false);
+  };
+
+  return (
+    <div style={card}>
+      <div style={cardHeader}>
+        <span style={indexBadge}>{index}</span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={summaryText}>{event.summary || "Untitled Booking"}</div>
+          <div style={datesText}>
+            {checkIn} → {checkOut}
+          </div>
+        </div>
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          style={toggleBtn}
+          aria-label={expanded ? "Hide details" : "Show details"}
+        >
+          {expanded ? "▲ Hide" : "▼ Details"}
+        </button>
+      </div>
+
+      {expanded && (
+        <div style={detailsPanel}>
+          {details.email && (
+            <div style={detailRow}>
+              <span style={detailLabel}>Email</span>
+              <a href={`mailto:${details.email}`} style={detailValue}>
+                {details.email}
+              </a>
+            </div>
+          )}
+          {details.phone && (
+            <div style={detailRow}>
+              <span style={detailLabel}>Phone</span>
+              <a href={`tel:${details.phone}`} style={detailValue}>
+                {details.phone}
+              </a>
+            </div>
+          )}
+          {details.guests && (
+            <div style={detailRow}>
+              <span style={detailLabel}>Guests</span>
+              <span style={detailValue}>{details.guests}</span>
+            </div>
+          )}
+          {details.notes && details.notes !== "undefined" && (
+            <div style={detailRow}>
+              <span style={detailLabel}>Notes</span>
+              <span style={detailValue}>{details.notes}</span>
+            </div>
+          )}
+
+          <div style={{ marginTop: "1rem" }}>
+            {confirmDelete ? (
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", alignItems: "center" }}>
+                <span style={{ fontSize: "0.9rem" }}>Remove this booking?</span>
+                <button
+                  onClick={handleDelete}
+                  disabled={deleting}
+                  style={btnDanger}
+                >
+                  {deleting ? "Removing…" : "Yes, remove"}
+                </button>
+                <button onClick={() => setConfirmDelete(false)} style={btnCancel}>
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button onClick={() => setConfirmDelete(true)} style={btnDanger}>
+                Remove booking
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function BookingsPage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [deletingId, setDeletingId] = useState(null);
-  const [confirmId, setConfirmId] = useState(null);
 
   useEffect(() => {
     axios
@@ -30,15 +136,11 @@ export default function BookingsPage() {
   }, []);
 
   const handleDelete = async (id) => {
-    setDeletingId(id);
-    setConfirmId(null);
     try {
       await axios.delete(`${SERVER_URL}/deleteEvent/${id}`);
       setEvents((prev) => prev.filter((e) => e.id !== id));
     } catch {
       setError("Failed to delete event. Please try again.");
-    } finally {
-      setDeletingId(null);
     }
   };
 
@@ -49,92 +151,99 @@ export default function BookingsPage() {
   });
 
   return (
-    <div
-      style={{
-        padding: "2rem",
-        fontFamily: "sans-serif",
-        maxWidth: 900,
-        margin: "0 auto",
-      }}
-    >
+    <div style={page}>
+      <h1 style={{ marginBottom: "1.5rem", fontSize: "1.5rem" }}>Bookings</h1>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {!loading && !error && sorted.length === 0 && <p>No bookings found.</p>}
-
-      {!loading && !error && sorted.length > 0 && (
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginTop: "5rem",
-          }}
-        >
-          <thead>
-            <tr style={{ background: "#f0f0f0", textAlign: "left" }}>
-              <th style={th}>#</th>
-              <th style={th}>Summary</th>
-              <th style={th}>Check-in</th>
-              <th style={th}>Check-out</th>
-              <th style={th}></th>
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((event, i) => (
-              <tr
-                key={event.id || i}
-                style={{ borderBottom: "1px solid #ddd" }}
-              >
-                <td style={td}>{i + 1}</td>
-                <td style={td}>{event.summary || "—"}</td>
-                <td style={td}>
-                  {formatDate(event.start.date || event.start.dateTime)}
-                </td>
-                <td style={td}>
-                  {formatDate(event.end.date || event.end.dateTime)}
-                </td>
-                <td style={{ ...td, textAlign: "right", whiteSpace: "nowrap" }}>
-                  {confirmId === event.id ? (
-                    <>
-                      <span style={{ marginRight: "0.5rem", fontSize: "0.9rem" }}>
-                        Remove this booking?
-                      </span>
-                      <button
-                        onClick={() => handleDelete(event.id)}
-                        disabled={deletingId === event.id}
-                        style={{ ...btnDanger, marginRight: "0.4rem" }}
-                      >
-                        {deletingId === event.id ? "Removing…" : "Yes, remove"}
-                      </button>
-                      <button
-                        onClick={() => setConfirmId(null)}
-                        style={btnCancel}
-                      >
-                        Cancel
-                      </button>
-                    </>
-                  ) : (
-                    <button
-                      onClick={() => setConfirmId(event.id)}
-                      style={btnDanger}
-                    >
-                      Remove
-                    </button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      {!loading && !error && sorted.length === 0 && <p>No upcoming bookings.</p>}
+      {sorted.map((event, i) => (
+        <BookingCard
+          key={event.id || i}
+          event={event}
+          index={i + 1}
+          onDelete={handleDelete}
+        />
+      ))}
     </div>
   );
 }
 
-const th = { padding: "0.6rem 1rem", fontWeight: 600 };
-const td = { padding: "0.6rem 1rem" };
+const page = {
+  padding: "1.5rem",
+  fontFamily: "sans-serif",
+  maxWidth: 700,
+  margin: "0 auto",
+};
+const card = {
+  border: "1px solid #ddd",
+  borderRadius: 8,
+  marginBottom: "1rem",
+  overflow: "hidden",
+};
+const cardHeader = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "0.75rem",
+  padding: "1rem",
+  background: "#fafafa",
+};
+const indexBadge = {
+  background: "#555",
+  color: "#fff",
+  borderRadius: "50%",
+  width: 26,
+  height: 26,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "0.8rem",
+  flexShrink: 0,
+  marginTop: 2,
+};
+const summaryText = {
+  fontWeight: 600,
+  fontSize: "0.95rem",
+  marginBottom: "0.2rem",
+  wordBreak: "break-word",
+};
+const datesText = {
+  fontSize: "0.85rem",
+  color: "#555",
+};
+const toggleBtn = {
+  flexShrink: 0,
+  padding: "0.3rem 0.7rem",
+  background: "#fff",
+  border: "1px solid #ccc",
+  borderRadius: 4,
+  cursor: "pointer",
+  fontSize: "0.8rem",
+  whiteSpace: "nowrap",
+};
+const detailsPanel = {
+  padding: "1rem",
+  borderTop: "1px solid #eee",
+  background: "#fff",
+};
+const detailRow = {
+  display: "flex",
+  gap: "0.75rem",
+  marginBottom: "0.5rem",
+  flexWrap: "wrap",
+};
+const detailLabel = {
+  fontWeight: 600,
+  fontSize: "0.85rem",
+  minWidth: 55,
+  color: "#444",
+};
+const detailValue = {
+  fontSize: "0.85rem",
+  color: "#222",
+  wordBreak: "break-word",
+};
 const btnDanger = {
-  padding: "0.3rem 0.8rem",
+  padding: "0.45rem 1rem",
   background: "#c0392b",
   color: "#fff",
   border: "none",
@@ -143,7 +252,7 @@ const btnDanger = {
   fontSize: "0.85rem",
 };
 const btnCancel = {
-  padding: "0.3rem 0.8rem",
+  padding: "0.45rem 1rem",
   background: "#888",
   color: "#fff",
   border: "none",
