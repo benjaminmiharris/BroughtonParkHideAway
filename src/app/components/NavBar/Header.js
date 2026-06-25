@@ -33,7 +33,7 @@ function Header() {
     }
   };
 
-  if (pathname === "/bookings") return null;
+  const isBookings = pathname === "/bookings";
 
   return (
     <Navbar
@@ -45,41 +45,36 @@ function Header() {
     >
       <Container>
         <Navbar.Brand href="/">BROUGHTON PARK HIDEAWAY</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse
-          id="responsive-navbar-nav"
-          className="justify-content-end"
-        >
-          <Nav className="me-2 ">
-            <Nav.Link
-              href="#home"
-              onClick={() => handleClickScroll("about-section")}
+        {!isBookings && (
+          <>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse
+              id="responsive-navbar-nav"
+              className="justify-content-end"
             >
-              About
-            </Nav.Link>
-            <Nav.Link
-              href="#features"
-              onClick={() => handleClickScroll("gallery-section")}
-            >
-              Gallery
-            </Nav.Link>
-            {/* <Nav.Link href="#pricing">Floor Plan</Nav.Link> */}
-            {/* <Nav.Link
-              href="#pricing"
-              onClick={() => handleClickScroll("testemonials-section")}
-            >
-              Reviews
-            </Nav.Link> */}
-            <Nav.Link
-              href="#pricing"
-              onClick={() => handleClickScroll("booking-section")}
-            >
-              Book
-            </Nav.Link>
-            {/* <Nav.Link href="/guest-info">Guest Info</Nav.Link>
-            <Nav.Link href="/guest-notes">Guest Notes</Nav.Link> */}
-          </Nav>
-        </Navbar.Collapse>
+              <Nav className="me-2 ">
+                <Nav.Link
+                  href="#home"
+                  onClick={() => handleClickScroll("about-section")}
+                >
+                  About
+                </Nav.Link>
+                <Nav.Link
+                  href="#features"
+                  onClick={() => handleClickScroll("gallery-section")}
+                >
+                  Gallery
+                </Nav.Link>
+                <Nav.Link
+                  href="#pricing"
+                  onClick={() => handleClickScroll("booking-section")}
+                >
+                  Book
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </>
+        )}
       </Container>
     </Navbar>
   );
