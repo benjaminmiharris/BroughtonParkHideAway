@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -8,6 +9,7 @@ import Navbar from "react-bootstrap/Navbar";
 import styles from "./Header.module.css";
 
 function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,6 +32,8 @@ function Header() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  if (pathname === "/bookings") return null;
 
   return (
     <Navbar
@@ -72,6 +76,8 @@ function Header() {
             >
               Book
             </Nav.Link>
+            {/* <Nav.Link href="/guest-info">Guest Info</Nav.Link>
+            <Nav.Link href="/guest-notes">Guest Notes</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
